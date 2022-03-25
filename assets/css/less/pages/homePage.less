@@ -11,6 +11,30 @@
     height: 100%;
   }
 
+  // Loader
+  .loader {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    z-index: 2;
+    background-color: #fff;
+    border: none;
+
+    animation-iteration-count: 1;
+    animation: expand 2.3s ease forwards;
+
+    @keyframes expand {
+      0% {
+        transform: translateX(0px);
+      }
+      100% {
+        transform: translateX(-3000px);
+      }
+    }
+  }
+
   header {
 
     @media (min-width: @mediaQueryMedium) {
@@ -60,59 +84,55 @@
           }
         }
       }
+    }
 
-      // Coin metrics
-      .coin-metrics {
-        position: relative;
-        display: flex;
-        flex-flow: column nowrap;
-        align-items: center;
-        margin: 0 auto 2em;
+    // Coin metrics
+    .coin-metrics {
+      position: relative;
+      display: flex;
+      flex-flow: row nowrap;
+      align-items: center;
 
-        @media (min-width: @mediaQueryMedium) {
-          .grid(8);
-          min-height: 200px;
+      @media (min-width: @mediaQueryMedium) {
+        // .grid(8);
+      }
+
+      padding: .75em 1.25em;
+      z-index: 1;
+
+      &:before {
+        position: absolute;
+        content: '';
+        top: 0;
+        left: 0;
+        right: 0;
+        bottom: 0;
+
+        .grid;
+
+        background: rgb(248, 249, 250);
+        background: linear-gradient(360deg, rgba(248, 249, 250, 1) 0%, rgba(233, 236, 239, 1) 100%);
+        opacity: .2;
+        border-radius: .5em;
+
+        box-shadow: 0 0 1em rgba(0, 0, 0, .5);
+        z-index: -1;
+      }
+
+      & > h3 {
+        display: inline;
+        font-size: .8em;
+        text-transform: uppercase;
+
+        &:nth-child(1) {
+          margin: 0;
         }
+      }
 
-        padding: 2em;
-        z-index: 1;
-
-        &:before {
-          position: absolute;
-          content: '';
-          top: 0;
-          left: 0;
-          right: 0;
-          bottom: 0;
-
-          .grid;
-          min-height: 200px;
-
-          background: rgb(248, 249, 250);
-          background: linear-gradient(360deg, rgba(248, 249, 250, 1) 0%, rgba(233, 236, 239, 1) 100%);
-          opacity: .2;
-          border-radius: .5em;
-
-          box-shadow: 0 0 1em rgba(0, 0, 0, .5);
-          z-index: -1;
-        }
-
-        & > h3 {
-          margin: 2em 0 0;
-          font-size: 1.2em;
-          text-transform: uppercase;
-          line-height: 1.6em;
-
-          &:nth-child(1) {
-            margin: 0;
-          }
-        }
-
-        & > p {
-          font-size: 1.8em;
-          line-height: 1.6em;
-          font-weight: 700;
-        }
+      & > p {
+        font-size: .92em;
+        font-weight: 700;
+        margin: 0 0 0 1em;
       }
     }
   }
