@@ -1,0 +1,350 @@
+/*
+ * Vivcoin platform
+ * @link https://vivcoin.ro
+ * @copyright (c) All rights reserved.
+ *
+ * @author Innovator Dev, https://innovator.dev
+ */
+
+section {
+
+  // Real time trading
+  &.trading {
+
+    background: var(--light);
+    background: linear-gradient(90deg, var(--light) 0%, var(--custom-color-3) 100%);
+
+    color: @textColor;
+    padding: .75em 0 .5em;;
+    font-size: 1.5em;
+
+    // Trading view
+    .trading-view {
+      display: flex;
+      flex-flow: column nowrap;
+      align-items: center;
+
+      @media (min-width: @mediaQueryMedium) {
+        flex-flow: row nowrap;
+        justify-content: flex-end;
+      }
+
+      & > li {
+
+        margin-left: 1.5em;
+        border-left: 1px dashed var(--gray);
+        padding-left: 1.5em;
+
+        &:nth-child(1) {
+          margin: 0;
+          border: none;
+          padding: 0;
+        }
+
+        small {
+          font-size: .7em;
+          line-height: 1;
+          color: var(--secondary);
+
+          @media (min-width: @mediaQueryMedium) {
+            margin-right: 1em;
+          }
+        }
+
+        strong {
+          font-size: 1em;
+          font-weight: 400;
+          line-height: 1;
+        }
+      }
+    }
+  }
+
+  // Box container
+  &.box-container {
+
+    display: flex;
+    flex-flow: column nowrap;
+    align-items: center;
+
+    margin: 1.5em auto 3em;
+
+    @media (min-width: @mediaQueryMedium) {
+      flex-flow: row nowrap;
+      justify-content: space-between;
+    }
+
+    & > div {
+      border-radius: .5em;
+      background-color: var(--custom-color-5);
+      border: 3px solid var(--custom-color-3);
+      padding: 1em 1.5em;
+      font-size: 1.33em;
+
+      height: 200px;
+
+      strong {
+        display: block;
+        height: 64px;
+        font-size: 1.8em;
+      }
+
+      small {
+        display: block;
+        font-size: 1em;
+        margin: -.4em 0 0;
+      }
+
+      nav {
+        border-top: 1px dotted var(--custom-color-3);
+        padding-top: .5em;
+        margin: .5em auto 0;
+      }
+    }
+
+    &.cols-2 {
+      & > div {
+        @media (min-width: @mediaQueryMedium) {
+          width: 46%;
+        }
+      }
+    }
+
+    &.cols-3 {
+      & > div {
+        @media (min-width: @mediaQueryMedium) {
+          width: 32%;
+        }
+      }
+    }
+
+    &.cols-4 {
+      & > div {
+        @media (min-width: @mediaQueryMedium) {
+          width: 23%;
+        }
+      }
+    }
+  }
+
+  // Page layout
+  &.header {
+
+    display: flex;
+    flex-flow: column nowrap;
+    align-items: center;
+
+    @media (min-width: @mediaQueryMedium) {
+      flex-flow: row nowrap;
+    }
+
+    & > nav.menu {
+      & > ul {
+        display: flex;
+        flex-flow: row nowrap;
+        align-items: center;
+        justify-content: flex-end;
+
+        & > li {
+          margin-right: .35em;
+
+          &:nth-child(:last-child) {
+            margin-right: 0;
+          }
+
+          a {
+            display: block;
+            text-align: left;
+          }
+        }
+      }
+    }
+
+    & > section.search {
+      display: flex;
+      flex-flow: row nowrap;
+      align-items: center;
+      .grid(4);
+
+      form#search {
+        .grid;
+
+        // Search value
+        input[name=filterName] {
+          .grid;
+          margin-right: 1em;
+        }
+      }
+    }
+  }
+
+  // Tabbed section
+  &.tabbed {
+    margin: 1em auto;
+
+    &:not(.clean) {
+      .grid(11);
+      margin: 2em auto;
+      padding: 1em;
+
+      border-radius: .5em;
+      border: 2px solid var(--custom-color-4);
+      box-shadow: 0 0 .5em .25em rgba(0, 0, 0, .05);
+      background-color: var(--white);
+    }
+
+    // Scrollable
+    &.scrollable {
+      height: 300px;
+      overflow-y: auto;
+    }
+
+    // Half width
+    &.half-width-tabbed {
+      .grid;
+
+      @media (min-width: @mediaQueryMedium) {
+        .grid(7);
+      }
+    }
+
+    // Table
+    table {
+      .grid;
+
+      thead {
+        th {
+          font-weight: 700;
+          font-size: 1.1em;
+          text-align: left;
+          padding: .4em .6em;
+        }
+      }
+
+      tbody {
+        tr {
+          &:nth-child(odd) {
+            background-color: var(--custom-color-3);
+          }
+
+          td {
+            padding: .4em .6em;
+          }
+        }
+      }
+    }
+  }
+
+  // Market deep data
+  &.market-deep {
+
+    display: flex;
+    flex-flow: row nowrap;
+
+    height: 200px;
+    max-height: 200px;
+    overflow-y: auto;
+
+    border: 1px solid var(--custom-color-3);
+    border-radius: 0.5em;
+    margin: 1em auto;
+    padding: 1em;
+
+    & > div {
+      overflow-x: auto;
+      .grid(6);
+
+      table {
+        .grid;
+        font-size: .88em;
+
+        th {
+          font-weight: 700;
+          font-size: 1em;
+          text-align: left;
+          padding: .2em .4em;
+        }
+
+        tbody {
+          tr {
+            &:nth-child(odd) {
+              background-color: var(--custom-color-3);
+            }
+
+            td {
+              padding: .2em .4em;
+            }
+          }
+        }
+      }
+    }
+  }
+
+  // Grid like
+  &.grid {
+    display: flex;
+    flex-flow: column nowrap;
+    align-items: center;
+    margin: 2em auto 1em;
+
+    &:nth-child(1) {
+      margin: 1em auto;
+    }
+
+    @media (min-width: @mediaQueryMedium) {
+      flex-flow: row nowrap;
+    }
+
+    &:nth-child(even) {
+      flex-flow: column nowrap;
+
+      @media (min-width: @mediaQueryMedium) {
+        flex-flow: row-reverse nowrap;
+      }
+    }
+
+    &.cols-2 {
+      & > div {
+        @media (min-width: @mediaQueryMedium) {
+          .grid(6);
+        }
+      }
+    }
+
+    &.cols-3 {
+      & > div {
+        @media (min-width: @mediaQueryMedium) {
+          .grid(4);
+        }
+      }
+    }
+
+    &.cols-4 {
+      & > div {
+        @media (min-width: @mediaQueryMedium) {
+          .grid(3);
+        }
+      }
+    }
+
+    img {
+      .grid;
+      margin: auto;
+
+      @media (min-width: @mediaQueryMedium) {
+        .grid(9);
+        max-height: 350px;
+        object-fit: cover;
+      }
+
+      &.location {
+        border-radius: .3em;
+        box-shadow: 0 0 3px rgba(0, 0, 0, .5);
+      }
+    }
+
+    .col-center {
+      text-align: center;
+    }
+  }
+}

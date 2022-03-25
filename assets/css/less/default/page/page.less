@@ -1,0 +1,114 @@
+/*
+ * Vivcoin platform
+ * @link https://vivcoin.ro
+ * @copyright (c) All rights reserved.
+ *
+ * @author Innovator Dev, https://innovator.dev
+ */
+
+// Default page structure
+.page {
+  display: flex;
+  flex-flow: column nowrap;
+
+  background-color: var(--light);
+
+  // No scroll page
+  &.no-scroll {
+    overflow: hidden;
+  }
+
+  // Landing page (shows purple section full height)
+  &.landing-page {
+    color: var(--light);
+    z-index: -1;
+    background: -webkit-gradient(linear, left top, right top, from(var(--custom-color-1)), to(var(--custom-color-2)));
+    background: -webkit-linear-gradient(left, var(--custom-color-1), var(--custom-color-2));
+    background: -moz-linear-gradient(left, var(--custom-color-1), var(--custom-color-2));
+    background: -o-linear-gradient(left, var(--custom-color-1), var(--custom-color-2));
+    background: linear-gradient(to right, var(--custom-color-1), var(--custom-color-2));
+
+    // Banner shaped
+    .shape {
+      &:before {
+        position: absolute;
+        content: '';
+        height: 436px;
+        width: 899px;
+        right: 0;
+        top: 30%;
+        background: url("@{assets}banner-shape.png") no-repeat center right;
+        z-index: -1;
+      }
+    }
+
+    @media (min-width: @mediaQueryMedium) {
+      min-height: 100%;
+      height: 100%;
+    }
+
+    // Header gradient when landing page enabled
+    header {
+      background: none;
+
+      @media (min-width: @mediaQueryMedium) {
+        min-height: 100%;
+        height: 100%;
+      }
+
+      // Ripples
+      @import "../../external/ripples";
+    }
+  }
+
+  // Header
+  header {
+    color: var(--white);
+    // z-index: 1;
+    background: -webkit-gradient(linear, left top, right top, from(var(--custom-color-1)), to(var(--custom-color-2)));
+    background: -webkit-linear-gradient(left, var(--custom-color-1), var(--custom-color-2));
+    background: -moz-linear-gradient(left, var(--custom-color-1), var(--custom-color-2));
+    background: -o-linear-gradient(left, var(--custom-color-1), var(--custom-color-2));
+    background: linear-gradient(to right, var(--custom-color-1), var(--custom-color-2));
+
+    // Containers
+    .navigation {
+      display: flex;
+      flex-flow: row nowrap;
+      margin: 2em auto;
+
+      // Brand
+      .brand {
+
+        // Logo fixed height
+        .logo {
+          img {
+            height: 80px;
+          }
+
+          // Bigger logo
+          &.logo-lg {
+            img {
+              height: 140px;
+            }
+          }
+        }
+      }
+    }
+
+    // Header elements
+    @import "header";
+  }
+
+  // Main
+  @import "main";
+
+  // Footer
+  @import "footer";
+
+  // Section(s)
+  @import "section";
+
+  // Dialog(s)
+  @import "dialog";
+}

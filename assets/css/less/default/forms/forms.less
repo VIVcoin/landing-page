@@ -1,0 +1,313 @@
+/*
+ * VIVcoin platform
+ * @link https://vivcoin.ro
+ * @copyright (c) All rights reserved.
+ *
+ * @author Innovator Dev, https://innovator.dev
+ */
+
+// Grouping elements
+.form-group {
+  margin-top: 1.4em;
+
+  &:nth-child(1) {
+    margin-top: 0;
+  }
+
+  // Centered group
+  &.form-group-centered {
+    align-items: center;
+  }
+
+  // Half size
+  &.form-group-sm {
+    @media (min-width: @mediaQueryMedium) {
+      .grid(6);
+    }
+  }
+}
+
+// Inline group with no distance
+.form-group-inline {
+  padding-bottom: 0;
+
+  @media (min-width: @mediaQueryMedium) {
+    display: flex;
+    flex-flow: row nowrap;
+    margin-bottom: 0;
+    align-items: center;
+    justify-content: space-between;
+  }
+
+  div {
+    margin-top: 1.4em;
+    .grid;
+
+    @media (min-width: @mediaQueryMedium) {
+      margin-top: 0;
+      .grid(5.7);
+    }
+  }
+
+  &.cols-3 {
+    div {
+
+      @media (min-width: @mediaQueryMedium) {
+        .grid(4);
+        margin-left: 1em;
+
+        &:nth-child(1) {
+          margin: 0;
+        }
+      }
+    }
+  }
+
+  &.cols-4 {
+    div {
+
+      @media (min-width: @mediaQueryMedium) {
+        .grid(3);
+        margin-left: 1em;
+
+        &:nth-child(1) {
+          margin: 0;
+        }
+      }
+    }
+  }
+}
+
+// Labels
+.form-label {
+  display: block;
+  max-width: 100%;
+  margin: 0 1em .4em 1em;
+
+  &.form-label-inline {
+    display: inline-block;
+    margin: 0;
+  }
+}
+
+// Controls
+.form-control {
+
+  position: relative;
+  display: block;
+
+  .grid;
+  max-width: 100%;
+
+  padding: .8em;
+  font-size: 1em;
+  line-height: 1.25em;
+
+  color: @textColor;
+  // background: @color14;
+
+  border-radius: .25em;
+
+  border-style: solid;
+  border-width: 1px 1px 2px 1px;
+  border-color: var(--custom-color-4);
+
+  transition: border-bottom-color .05s;
+
+  -ms-touch-action: manipulation;
+  touch-action: manipulation;
+
+  &:focus, &:active {
+    outline: none;
+  }
+
+  // Smaller form control
+  &.form-control-sm {
+    font-size: .9em;
+    padding: .7em;
+    line-height: 1.25em;
+  }
+
+  // File upload control
+  &.form-control-upload {
+    position: absolute;
+    top: 0;
+    right: 0;
+    margin: 0;
+    padding: 0;
+    font-size: 20px;
+    cursor: pointer;
+    opacity: 0;
+    filter: alpha(opacity=0);
+  }
+
+  // AutoFill
+  &:-webkit-autofill {
+    -webkit-box-shadow: 0 0 0 40px var(--custom-color-4) inset;
+    border-color: var(--custom-color-4);
+
+    &::first-line {
+      font-family: 'Roboto Light', Arial, sans-serif;
+      font-weight: 400;
+      margin: 0;
+      font-size: 1.1em;
+    }
+  }
+}
+
+// Buttons
+.form-buttons {
+
+  display: flex;
+  flex-flow: column nowrap;
+  justify-content: space-around;
+
+  margin: 3em auto 1em;
+
+  @media (min-width: 424px) {
+    flex-flow: row nowrap;
+    justify-content: space-around;
+    align-items: center;
+  }
+
+  input[type=submit], input[type=button], input[type=reset], button, a.btn {
+    margin: 1em 0 0;
+
+    &:nth-child(1) {
+      margin: 0;
+    }
+  }
+
+  @media (min-width: @mediaQueryMedium) {
+    justify-content: flex-start;
+
+    input[type=submit], input[type=button], input[type=reset], button, a.btn {
+      margin: 0 0 0 1em;
+
+      &:nth-child(1) {
+        margin: 0;
+      }
+    }
+  }
+}
+
+// Select elements
+.form-select {
+  position: relative;
+
+  select {
+    padding-right: 2.5em;
+
+    option {
+      color: @textColor;
+    }
+  }
+
+  &:after {
+
+    position: absolute;
+    display: block;
+    content: '';
+
+    // border: 3px solid @color2;
+    border-radius: 2px;
+    border-right: 0;
+    border-top: 0;
+
+    height: .625em;
+    margin-top: -.4375em;
+    pointer-events: none;
+
+    top: 50%;
+    transform: rotate(-45deg);
+    transform-origin: center;
+    width: .625em;
+    right: 1em;
+  }
+}
+
+// Default button
+.btn {
+
+  display: inline-block;
+
+  font-size: 1em;
+  line-height: 1;
+
+  border-radius: .45em;
+  margin-bottom: 0;
+  font-weight: 400;
+  text-align: center;
+  white-space: nowrap;
+  vertical-align: middle;
+
+  -ms-touch-action: manipulation;
+  touch-action: manipulation;
+  cursor: pointer;
+
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+  outline: none;
+
+  padding: .75em 1em;
+  border: 0;
+  transition: background-color .05s;
+
+  // Focus/Active states
+  &:focus, &:active {
+    box-shadow: none;
+    outline: none;
+  }
+
+  // Large button
+  &.btn-lg {
+    font-size: 1.15em;
+    padding: 1em 1.25em;
+  }
+
+  // Small button
+  &.btn-sm {
+    font-size: .88em;
+    padding: .75em 1em;
+  }
+
+  // Extra small button
+  &.btn-xsm {
+    font-size: .65em;
+    padding: .5em .75em;
+  }
+
+  // Centered button
+  &.btn-centered {
+    display: table;
+    margin: auto;
+  }
+
+  &.btn-no-padding {
+    padding: 0;
+  }
+
+  // Disabled button
+  &.btn-disabled,
+  &:disabled {
+    // .define-button(@buttonDisabledTextColor, @buttonDisabledBackgroundColor, @buttonDisabledBackgroundColor);
+    cursor: not-allowed;
+  }
+
+  // Clear styling
+  &.btn-clear {
+    background: transparent;
+    border: none;
+    outline: none;
+    border-radius: 0;
+  }
+
+  // Wide button in mobile
+  &.btn-wide-mobile {
+    @media (max-width: 425px) {
+      width: 100%;
+    }
+  }
+}

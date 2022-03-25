@@ -1,0 +1,40 @@
+/*
+ * Vivcoin platform
+ * @link https://vivcoin.ro
+ * @copyright (c) All rights reserved.
+ *
+ * @author Innovator Dev, https://innovator.dev
+ */
+
+.container {
+  margin: 0 auto;
+  padding: 0 1em;
+
+  @media (min-width: @mediaQueryMedium) {
+    width: 750px;
+  }
+
+  @media (min-width: @mediaQueryLarge) {
+    width: 970px;
+  }
+
+  @media (min-width: @mediaQueryExtraLarge) {
+    width: 1170px;
+  }
+
+  @media (min-width: @mediaQueryExtraLarge2x) {
+    width: 1370px;
+  }
+
+  /*@media (min-width: @mediaQueryExtraLarge3x ) {
+    width: 1570px;
+  }
+
+  @media (min-width: @mediaQueryExtraLarge4x) {
+    width: 1870px;
+  }*/
+}
+
+.grid(@grid: 12) {
+  width: (@grid*100%/12);
+}

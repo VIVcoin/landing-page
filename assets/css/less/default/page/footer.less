@@ -1,0 +1,81 @@
+/*
+ * VIVcoin platform
+ * @link https://vivcoin.ro
+ * @copyright (c) All rights reserved.
+ *
+ * @author Innovator Dev, https://innovator.dev
+ */
+
+// Footer
+footer {
+  .grid;
+
+  color: var(--light);
+  background: -webkit-gradient(linear, left top, right top, from(var(--custom-color-1)), to(var(--custom-color-2)));
+  background: -webkit-linear-gradient(left, var(--custom-color-1), var(--custom-color-2));
+  background: -moz-linear-gradient(left, var(--custom-color-1), var(--custom-color-2));
+  background: -o-linear-gradient(left, var(--custom-color-1), var(--custom-color-2));
+  background: linear-gradient(to right, var(--custom-color-1), var(--custom-color-2));
+
+  z-index: 1;
+  padding: 1.5em 0 3em;
+
+  a {
+    color: @textColorWhite;
+  }
+
+  @media print {
+    display: none;
+  }
+
+  // Container
+  .container {
+    display: flex;
+    flex-flow: column nowrap;
+    align-items: center;
+    padding: 1.5em 0 0;
+    justify-content: center;
+  }
+
+  div {
+    text-align: center;
+    font-size: .88em;
+
+    @media (min-width: @mediaQueryMedium) {
+      text-align: left;
+    }
+
+    nav {
+      ul {
+        display: flex;
+        flex-flow: row nowrap;
+        align-items: center;
+        justify-content: center;
+
+        li {
+          display: inline;
+          margin-left: 1.25em;
+
+          &:nth-child(1) {
+            margin-left: 0;
+          }
+        }
+      }
+    }
+  }
+
+  // Author
+  .author {
+    display: flex;
+    flex-flow: row nowrap;
+    align-items: center;
+    justify-content: center;
+    text-align: right;
+    margin: 3em 0 1em;
+    font-size: .75em;
+
+    & > a {
+      margin-left: .75em;
+    }
+  }
+}

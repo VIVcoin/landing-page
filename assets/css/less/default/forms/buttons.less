@@ -1,0 +1,38 @@
+/*
+ * Vivcoin platform
+ * @link https://vivcoin.ro
+ * @copyright (c) All rights reserved.
+ *
+ * @author Innovator Dev, https://innovator.dev
+ */
+
+// Button structure mixin
+.define-button (@gradientColorStart: #ff4137, @gradientColorEnd: #fdc800, @textColor: @textColorWhite) {
+  // border-radius: .5em;
+  // padding: .75em;
+
+  -webkit-transition: 0.5s;
+  -o-transition: 0.5s;
+  -moz-transition: 0.5s;
+  transition: 0.5s;
+
+  color: @textColor;
+  border: 0;
+
+  background-position: left center;
+  -webkit-background-size: 200% auto;
+  background-size: 200% auto;
+
+  background-image: -webkit-linear-gradient(50deg, @gradientColorStart 20%, @gradientColorEnd 51%, @gradientColorStart 90%);
+  background-image: -moz-linear-gradient(50deg, @gradientColorStart 20%, @gradientColorEnd 51%, @gradientColorStart 90%);
+  background-image: -o-linear-gradient(50deg, @gradientColorStart 20%, @gradientColorEnd 51%, @gradientColorStart 90%);
+  background-image: linear-gradient(40deg, @gradientColorStart 20%, @gradientColorEnd 51%, @gradientColorStart 90%);
+
+  &:hover,
+  &:active,
+  &.active {
+    background-position: right center;
+    text-decoration: none;
+    color: @textColor;
+  }
+}

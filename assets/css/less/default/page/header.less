@@ -1,0 +1,64 @@
+/*
+ * Vivcoin platform
+ * @link https://vivcoin.ro
+ * @copyright (c) All rights reserved.
+ *
+ * @author Innovator Dev, https://innovator.dev
+ */
+
+// Header elements
+
+// Page header menu
+nav.page-header-menu {
+
+  .grid;
+  margin: .25em auto 0;
+
+  & > ul {
+    display: flex;
+    flex-flow: row nowrap;
+    align-items: center;
+    justify-content: flex-end;
+
+    & > li {
+      margin-left: 1.5em;
+      line-height: 1;
+
+      &:nth-child(1) {
+        margin: 0;
+      }
+
+      & > a:not(.btn) {
+        color: @textColorWhite;
+        padding: 0.5em;
+        border: 1px solid transparent;
+
+        &:not(.lang):hover,
+        &:not(.lang).selected {
+          border-color: var(--light);
+          border-radius: 0.35em;
+          background: var(--light);
+          color: var(--black);
+        }
+
+        // Language link
+        &.lang {
+          display: flex;
+          flex-flow: row nowrap;
+          align-items: center;
+
+          img {
+            width: 1em;
+            height: .8em;
+            margin-right: .5em;
+          }
+        }
+      }
+    }
+  }
+
+  // Print
+  @media print {
+    display: none;
+  }
+}

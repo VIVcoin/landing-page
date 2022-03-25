@@ -1,0 +1,132 @@
+/*
+ * Vivcoin platform
+ * @link https://vivcoin.ro
+ * @copyright (c) All rights reserved.
+ *
+ * @author Innovator Dev, https://innovator.dev
+ */
+
+// Spinner
+.spinner {
+  width: 48px;
+  height: 48px;
+  clear: both;
+  margin: 2em auto;
+  border-radius: 50%;
+
+  -webkit-animation: circleRotation .6s infinite linear;
+  animation: circleRotation .6s infinite linear;
+
+  border: 3px var(--indigo) solid;
+  border-top: 3px var(--white) solid;
+
+  &.spinner-sm {
+    width: 32px;
+    height: 32px;
+
+    border-width: 1px;
+    margin: 0 auto;
+  }
+
+  &.spinner-no-margin {
+    margin: 0;
+  }
+}
+
+@-webkit-keyframes circleRotation {
+  from {
+    -webkit-transform: rotate(0deg);
+  }
+  to {
+    -webkit-transform: rotate(359deg);
+  }
+}
+
+@keyframes circleRotation {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(359deg);
+  }
+}
+
+
+// Floats
+.pull-left {
+  float: left;
+}
+
+.pull-right {
+  float: right;
+}
+
+// Clear fix
+.cf {
+  &:after {
+    content: '';
+    display: table;
+    clear: both;
+  }
+}
+
+// Appearance
+.appearance(@value: none) {
+  -webkit-appearance: @value;
+  -moz-appearance: @value;
+  appearance: @value;
+}
+
+// Text hide
+.text-hide {
+  font: ~"0/0" a;
+  color: transparent;
+  text-shadow: none;
+  background-color: transparent;
+  border: 0;
+}
+
+// Visibility toggle (mobile/desktop)
+.hide {
+  display: none;
+}
+
+.show {
+  display: block;
+}
+
+.show-inline {
+  display: inline;
+}
+
+.show-sm {
+  .show;
+
+  @media (min-width: @mediaQueryMedium) {
+    .hide;
+  }
+}
+
+.show-sm-inline {
+  .show-inline;
+
+  @media (min-width: @mediaQueryMedium) {
+    .hide;
+  }
+}
+
+.show-lg {
+  .hide;
+
+  @media (min-width: @mediaQueryMedium) {
+    .show;
+  }
+}
+
+.show-lg-inline {
+  .hide;
+
+  @media (min-width: @mediaQueryMedium) {
+    .show-inline;
+  }
+}
