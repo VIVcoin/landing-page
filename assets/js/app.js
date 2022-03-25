@@ -612,6 +612,43 @@ const vivCoin = (() => {
         }
     }
 
+    /**
+     * Slide menu
+     */
+    function slideMenu()
+    {
+        let slideMenuButton = document.querySelector('button.btn-slide'),
+            headerNavigation = document.querySelector('.page-header-menu');
+
+        if (slideMenuButton) {
+            slideMenuButton.addEventListener('click', e => {
+                e.preventDefault();
+                e.stopPropagation();
+
+                // Slide dialog
+                const dlg = new Dialog(`<div class="container">${headerNavigation.innerHTML}</div>`, {
+                        dialogClassName: 'slide-menu',
+                        dialogPlaceholderClassName: 'slide-menu-placeholder',
+                        position: {
+                            x: 0,
+                            y: 0
+                        }
+                    }
+                );
+
+                // Attach event on slide close
+                let slideMenuCloseButton = dlg.dlg.querySelector('button.btn-slide-close');
+                if (slideMenuCloseButton) {
+                    slideMenuCloseButton.addEventListener('click', e => {
+                        e.preventDefault();
+                        e.stopPropagation();
+                        dlg.close();
+                    });
+                }
+            });
+        }
+    }
+
     return {
 
         // Options
@@ -642,7 +679,9 @@ const vivCoin = (() => {
         notify: notification,
 
         // Metrics
-        metrics: getCoinMetrics
+        metrics: getCoinMetrics,
+
+        menu: slideMenu
 
     };
 
@@ -658,6 +697,9 @@ const vivCoin = (() => {
 
     // Enable dropdown menus
     vivCoin.dd();
+
+    // Menu
+    vivCoin.menu();
 
     // Metrics
     vivCoin.metrics();
