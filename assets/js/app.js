@@ -45,9 +45,7 @@ class Observer {
 /**
  * Dialog.js is a multipurpose lightweight highly configurable dialog library.
  *
- * @author Eugen Bușoiu <eugen@eugen.pro>
- * @link https://github.com/eugenb/dialog.js
- *
+ * @author Innovator Dev, https://innovator.dev
  * @licence MIT <https://raw.githubusercontent.com/eugenb/dialog.js/master/LICENSE>
  */
 
