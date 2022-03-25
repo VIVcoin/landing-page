@@ -1,8 +1,9 @@
 /*
- * TCall Platform
+ * VIVcoin platform
+ * @link https://vivcoin.ro
+ * @copyright (c) All rights reserved.
  *
  * @author Innovator Dev, https://innovator.dev
- * @copyright (c) 2022. All rights reserved.
  */
 
 'use strict';
@@ -320,8 +321,6 @@ class Dialog {
 
 /**
  * VIVcoin app.
- *
- * @type {{dd: ((function(): {})|*), dialog: enableDialog, ob: Observer, route: (function(): {}), portfolio: renderPortfolio, spin: string, options: {url: string}, language: enableLanguageChange, exchange: renderExchangeRates, api: (function(*, *=, *=): Promise<Response>), notify: notification}}
  */
 const vivCoin = (() => {
 
@@ -572,6 +571,52 @@ const vivCoin = (() => {
         }
     }
 
+    /**
+     * Get coin metrics.
+     */
+    function getCoinMetrics() {
+
+        // Coin metrics container
+        const coinMetrics = document.querySelector('.coin-metrics');
+        if (coinMetrics) {
+
+            // Get lang
+            const tableHead = JSON.parse(atob(coinMetrics.getAttribute('data-lang')));
+
+            vivCoin.ob.add('renderMetrics', () => {
+
+                coinMetrics.innerHTML = vivCoin.spin;
+
+                vivCoin.api('api/public/market/')
+                    .then(response => {
+                        return response.json();
+                    })
+                    .then(json => {
+                        if (!json.error) {
+
+                            // Results
+                            const results = [];
+
+                            results.push(`<h3>${tableHead['heading.exchange']}</h3>`);
+                            results.push(`<p>1 VIVcoin = ${json.market.price} RON</p>`);
+
+                            results.push(`<h3>${tableHead['heading.orders']}</h3>`);
+                            results.push(`<p>${json.market.orders} ordine</p>`);
+
+                            coinMetrics.innerHTML = results.join('');
+                        }
+                    }).catch(error => console.log(error));
+            });
+
+            vivCoin.ob.fire();
+
+            // Refresh
+            setInterval(() => {
+                vivCoin.ob.fire();
+            }, 30000);
+        }
+    }
+
     return {
 
         // Options
@@ -599,7 +644,10 @@ const vivCoin = (() => {
         language: enableLanguageChange,
 
         // Notification
-        notify: notification
+        notify: notification,
+
+        // Metrics
+        metrics: getCoinMetrics
 
     };
 
@@ -615,5 +663,8 @@ const vivCoin = (() => {
 
     // Enable dropdown menus
     vivCoin.dd();
+
+    // Metrics
+    vivCoin.metrics();
 
 })();
