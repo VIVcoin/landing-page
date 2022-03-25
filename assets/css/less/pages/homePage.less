@@ -176,5 +176,71 @@
         }
       }
     }
+
+    // Cards
+    .testimonials {
+
+      display: flex;
+      flex-flow: column nowrap;
+      margin: 2.5em auto 0;
+
+      &:nth-child(1) {
+        margin: 0 auto;
+      }
+
+      @media (min-width: @mediaQueryMedium) {
+        flex-flow: row nowrap;
+        align-items: center;
+        justify-content: space-around;
+      }
+
+      article {
+        .grid;
+        border: 1px dashed #f3f2f7;
+        padding: 0;
+        border-radius: .5em;
+        background-color: var(--white);
+
+        @media (min-width: @mediaQueryMedium) {
+          width: 40%;
+        }
+
+        & > h4 {
+          margin: .5em auto;
+        }
+
+        & > p {
+          margin: 0;
+        }
+
+        & > div {
+          padding: .5em 2em 1.5em;
+        }
+
+        & > cite {
+          display: flex;
+          flex-flow: row nowrap;
+          align-items: center;
+          justify-content: space-between;
+
+          background-color: #f3f2f7;
+          padding: 1em 2em;
+          font-size: .9em;
+          text-transform: none;
+          font-style: normal;
+
+          border-bottom-left-radius: 0.5em;
+          width: 100%;
+          border-bottom-right-radius: 0.5em;
+
+          img {
+            border-radius: 50%;
+            height: 40px;
+            width: 40px;
+            margin-left: .5em;
+          }
+        }
+      }
+    }
   }
 }

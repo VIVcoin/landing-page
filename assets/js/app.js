@@ -598,9 +598,6 @@ const vivCoin = (() => {
                             results.push(`<h3>${tableHead['heading.exchange']}</h3>`);
                             results.push(`<p>1 VIVcoin = ${json.market.price} RON</p>`);
 
-                            results.push(`<h3>${tableHead['heading.orders']}</h3>`);
-                            results.push(`<p>${json.market.orders} ordine</p>`);
-
                             coinMetrics.innerHTML = results.join('');
                         }
                     }).catch(error => console.log(error));
