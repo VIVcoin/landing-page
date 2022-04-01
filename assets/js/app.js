@@ -681,6 +681,7 @@ const vivCoin = (() => {
         // Metrics
         metrics: getCoinMetrics,
 
+        // Slide menu
         menu: slideMenu
 
     };
