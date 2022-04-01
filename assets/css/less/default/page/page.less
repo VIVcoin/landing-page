@@ -74,11 +74,21 @@
     // Containers
     .navigation {
       display: flex;
-      flex-flow: row nowrap;
+      flex-flow: column nowrap;
       margin: 2em auto;
+
+      @media (min-width: @mediaQueryMedium) {
+        flex-flow: row nowrap;
+        justify-content: right;
+      }
 
       // Brand
       .brand {
+        margin: 0 auto;
+
+        @media (min-width: @mediaQueryMedium) {
+          margin: 0 auto 0 0;
+        }
 
         // Logo fixed height
         .logo {
