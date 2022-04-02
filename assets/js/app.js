@@ -608,7 +608,7 @@ const vivCoin = (() => {
             // Refresh
             setInterval(() => {
                 vivCoin.ob.fire();
-            }, 30000);
+            }, 10000);
         }
     }
 
