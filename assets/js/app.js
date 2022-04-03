@@ -327,7 +327,7 @@ const vivCoin = (() => {
      * @type {{url: string}}
      */
     const op = {
-        url: 'https://vivcoin.idealweb.ro/'
+        url: 'https://app.vivcoin.ro/'
     };
 
     /**
