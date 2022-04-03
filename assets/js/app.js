@@ -585,7 +585,7 @@ const vivCoin = (() => {
 
                 coinMetrics.innerHTML = vivCoin.spin;
 
-                vivCoin.api('api/public/market/')
+                vivCoin.api(`api/public/market/?${Date.now()}`)
                     .then(response => {
                         return response.json();
                     })
